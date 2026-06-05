@@ -1,312 +1,135 @@
-
-
-   ```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Adulto Mayor | Plataforma de Atención</title>
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body{
-      background:#f4f7fa;
-      color:#333;
-    }
-
-    header{
-      background:#2c6e91;
-      color:white;
-      padding:20px 50px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    header h1{
-      font-size:28px;
-    }
-
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:20px;
-      font-weight:bold;
-    }
-
-    .banner{
-      background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-      url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      height:450px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      color:white;
-      padding:20px;
-    }
-
-    .banner-content h2{
-      font-size:45px;
-      margin-bottom:20px;
-    }
-
-    .banner-content p{
-      font-size:20px;
-      margin-bottom:30px;
-    }
-
-    .btn{
-      background:#2c6e91;
-      color:white;
-      padding:15px 30px;
-      text-decoration:none;
-      border-radius:8px;
-      font-weight:bold;
-    }
-
-    .section{
-      padding:60px 50px;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:40px;
-      font-size:35px;
-      color:#2c6e91;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:white;
-      padding:30px;
-      border-radius:15px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      text-align:center;
-    }
-
-    .card h3{
-      margin-bottom:15px;
-      color:#2c6e91;
-    }
-
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
-      text-align:center;
-    }
-
-    .stat{
-      background:#2c6e91;
-      color:white;
-      padding:30px;
-      border-radius:15px;
-    }
-
-    .stat h2{
-      font-size:40px;
-      margin-bottom:10px;
-    }
-
-    form{
-      background:white;
-      padding:40px;
-      border-radius:15px;
-      max-width:700px;
-      margin:auto;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    form input,
-    form select,
-    form textarea{
-      width:100%;
-      padding:15px;
-      margin-bottom:20px;
-      border:1px solid #ccc;
-      border-radius:8px;
-    }
-
-    form button{
-      background:#2c6e91;
-      color:white;
-      padding:15px 30px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      font-size:16px;
-    }
-
-    footer{
-      background:#1f4d66;
-      color:white;
-      text-align:center;
-      padding:30px;
-      margin-top:50px;
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Apoyo para Adultos Mayores</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f7fa;color:#333;line-height:1.6}
+header{position:sticky;top:0;background:#2c6e91;color:#fff;padding:15px 30px;display:flex;justify-content:space-between;align-items:center;z-index:1000}
+nav a{color:#fff;text-decoration:none;margin-left:15px;font-weight:bold}
+.hero{height:90vh;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1400&q=80') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+.hero h1{font-size:3rem}
+.btn{display:inline-block;margin-top:20px;background:#2c6e91;color:#fff;padding:12px 25px;border-radius:8px;text-decoration:none}
+section{padding:60px 30px}
+h2{text-align:center;color:#2c6e91;margin-bottom:25px}
+.cards,.gallery,.testimonials,.stats{display:grid;gap:20px}
+.cards{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:#fff;padding:25px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:center}
+.gallery{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+.testimonials{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.testimonial{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.stats{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.stat{background:#2c6e91;color:#fff;text-align:center;padding:25px;border-radius:10px}
+form{max-width:700px;margin:auto;background:#fff;padding:25px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+input,select,textarea{width:100%;padding:12px;margin-bottom:15px}
+button{background:#2c6e91;color:#fff;border:none;padding:12px 20px;border-radius:8px;cursor:pointer}
+footer{background:#1f4d66;color:#fff;text-align:center;padding:30px}
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;text-decoration:none;font-size:24px}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Adulto Mayor</h1>
+<header>
+<div>🤝 Sistema de Apoyo para Adultos Mayores</div>
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#nosotros">Quiénes Somos</a>
+<a href="#servicios">Servicios</a>
+<a href="#estadisticas">Estadísticas</a>
+<a href="#registro">Registro</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
 
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#registro">Registro</a>
-      <a href="#contacto">Contacto</a>
-      
+<section id="inicio" class="hero">
+<div>
+<h1>Sistema de Apoyo para Adultos Mayores</h1>
+<p>Atención, acompañamiento y apoyo para una mejor calidad de vida.</p>
+<a href="#servicios" class="btn">Conocer Más</a>
+</div>
+</section>
 
-      
-    </nav>
-  </header>
+<section id="nosotros">
+<h2>Quiénes Somos</h2>
+<p style="max-width:900px;margin:auto;text-align:center">Proyecto académico orientado a brindar información y apoyo a los adultos mayores mediante una plataforma web amigable y accesible.</p>
+</section>
 
-  <section id="inicio" class="banner"></section>
-    <div class="banner-content">
-      <h2>Sistema de Apoyo para Adultos Mayores</h2>
+<section id="servicios">
+<h2>Servicios</h2>
+<div class="cards">
+<div class="card"><h3>🤝 Acompañamiento</h3><p>Apoyo en actividades diarias.</p></div>
+<div class="card"><h3>❤️ Atención Médica</h3><p>Orientación y seguimiento básico.</p></div>
+<div class="card"><h3>🚑 Emergencias</h3><p>Canales de atención prioritaria.</p></div>
+</div>
+</section>
 
-      <p>
-        Plataforma orientada al acompañamiento, atención y gestión
-        de servicios para personas de la tercera edad.
-      </p>
+<section>
+<h2>Galería</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80">
+<img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&w=800&q=80">
+<img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80">
+</div>
+</section>
 
-      <a href="#" class="btn">Conocer Más</a>
-    </div>
-  </section>
+<section>
+<h2>Testimonios</h2>
+<div class="testimonials">
+<div class="testimonial">“La plataforma facilitó la solicitud de acompañamiento.”</div>
+<div class="testimonial">“Información clara y fácil de usar.”</div>
+<div class="testimonial">“Excelente iniciativa para apoyar a los adultos mayores.”</div>
+</div>
+</section>
 
-  <section id="servicios" class="section">
-     <h2 class="section-title">Servicios Disponibles</h2>
+<section id="estadisticas">
+<h2>Estadísticas</h2>
+<div class="stats">
+<div class="stat"><h3>250+</h3><p>Adultos registrados</p></div>
+<div class="stat"><h3>120</h3><p>Cuidadores</p></div>
+<div class="stat"><h3>500+</h3><p>Solicitudes atendidas</p></div>
+</div>
+</section>
 
-    
+<section id="registro">
+<h2>Formulario de Registro</h2>
+<form onsubmit="enviarFormulario(event)">
+<input type="text" placeholder="Nombre completo" required>
+<input type="tel" placeholder="Teléfono" required>
+<select required>
+<option value="">Seleccione tipo de ayuda</option>
+<option>Acompañamiento</option>
+<option>Atención Médica</option>
+<option>Emergencia</option>
+</select>
+<textarea rows="5" placeholder="Descripción de la solicitud"></textarea>
+<button type="submit">Enviar Solicitud</button>
+</form>
+</section>
 
-     <div class="card">
+<section id="contacto">
+<h2>Contacto</h2>
+<p style="text-align:center">Correo: apoyoadultomayor@gmail.com</p>
+<p style="text-align:center">Teléfono: 300 000 0000</p>
+<p style="text-align:center">Horario: Lunes a Viernes 8:00 a.m. - 5:00 p.m.</p>
+</section>
 
-     <h1>🤝</h1>
+<footer>
+<h3>Sistema de Apoyo para Adultos Mayores</h3>
+<p>SENA - ADSO</p>
+<p>2026</p>
+</footer>
 
-     <h3>Acompañamiento</h3>
+<a class="whatsapp" href="https://wa.me/573000000000" target="_blank">💬</a>
 
-    <p>
-    Atención y acompañamiento para adultos mayores
-    en actividades diarias.
-  </p>
-
-  </div>
-
-  <div class="card">
-
-  <h1>❤️</h1>
-
-  <h3>Atención Médica</h3>
-
-  <p>
-    Seguimiento básico de salud y apoyo en procesos médicos.
-  </p>
-
-  </div>
-  ```
-
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2 class="section-title">Estadísticas del Sistema</h2>
-
-    <div class="stats">
-
-      <div class="stat">
-        <h2>250+</h2>
-        <p>Adultos registrados</p>
-      </div>
-
-      <div class="stat">
-        <h2>120</h2>
-        <p>Cuidadores</p>
-      </div>
-
-      <div class="stat">
-        <h2>500+</h2>
-        <p>Solicitudes atendidas</p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section id="registro" class="section">
-    <h2 class="section-title">Formulario de Registro</h2>
-
-
-    <form>
-
-      <input type="text" placeholder="Nombre completo">
-
-      <input type="text" placeholder="Número de teléfono">
-
-      <select>
-        <option>Seleccione tipo de ayuda</option>
-        <option>Acompañamiento</option>
-        <option>Atención médica</option>
-        <option>Emergencia</option>
-      </select>
-
-      <textarea rows="5" placeholder="Descripción de la solicitud"></textarea>
-
-      <button type="submit">Enviar Solicitud</button>
-
-    </form>
-
-   </section>
-  <section id="contacto" class="section">
-
-   <h2 class="section-title">Información de Contacto</h2>
-
-     <div class="card">
-
-     <h3>Contacto Institucional</h3>
- 
-     <p>Correo: apoyoadultomayor@gmail.com</p>
-
-     <p>Teléfono: 300 000 0000</p>
-
-    <p>Horario: Lunes a Viernes 8:00 am - 5:00 pm</p>
-
- </div>
-
-  </section>
-   <footer>
-
-    <h3>Sistema de Apoyo para Adultos Mayores</h3>
-
-    <p>Contacto: apoyoadultomayor@gmail.com</p>
-
-    <p>Teléfono: 300 000 0000</p>
-
-    <p>SENA - ADSO</p>
-
-  </footer>
+<script>
+function enviarFormulario(e){
+e.preventDefault();
+alert("Solicitud registrada correctamente.");
+}
+</script>
 
 </body>
 </html>
-```
